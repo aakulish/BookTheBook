@@ -13,6 +13,7 @@ namespace BTB_Data
         public string BookName { get; set; }
         public string Author { get; set; }
         public string Style { get; set; }
+        public string Category { get; set; }
         public DateTime DateOfRelease { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }

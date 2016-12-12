@@ -7,7 +7,7 @@ namespace BTB_Data.Migrations
     {
         public override void Up()
         {
-            /*CreateTable(
+            CreateTable(
                 "dbo.Books",
                 c => new
                     {
@@ -15,6 +15,7 @@ namespace BTB_Data.Migrations
                         BookName = c.String(),
                         Author = c.String(),
                         Style = c.String(),
+                        Category = c.String(),
                         DateOfRelease = c.DateTime(nullable: false),
                         Description = c.String(),
                         Price = c.Double(nullable: false),
@@ -59,8 +60,6 @@ namespace BTB_Data.Migrations
             DropTable("dbo.Shops");
             DropTable("dbo.Journals");
             DropTable("dbo.Books");
-        }
-        */
         }
     }
 }

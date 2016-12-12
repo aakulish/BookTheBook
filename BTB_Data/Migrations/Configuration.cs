@@ -28,8 +28,6 @@ namespace BTB_Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-
             string[] str, splittedstring;
             char[] splitter = new char[] { ';' };
 
@@ -48,7 +46,7 @@ namespace BTB_Data.Migrations
                 else
                 {
 
-                    b = new Book { BookName = splittedstring[0],Author= splittedstring[1],Style= splittedstring[2],DateOfRelease= Convert.ToDateTime(splittedstring[3]),Description= splittedstring[4],Price=Convert.ToDouble(splittedstring[5]),LinkToCover= splittedstring[6] };
+                    b = new Book { BookName = splittedstring[0], Author = splittedstring[1], Category= splittedstring[2], Style = splittedstring[3], DateOfRelease = Convert.ToDateTime(splittedstring[4]), Description = splittedstring[5], Price = Convert.ToDouble(splittedstring[6]), LinkToCover = splittedstring[7] };
                     context.Books.AddOrUpdate(c => c.BookName, b);
                 }
 
@@ -62,17 +60,18 @@ namespace BTB_Data.Migrations
                 else
                 {
 
-                    s = new Shop { ShopName = splittedstring[7], Address = splittedstring[8] };
+                    s = new Shop { ShopName = splittedstring[8], Address = splittedstring[9] };
                     context.Shops.AddOrUpdate(c => c.ShopName, s);
                 }
 
 
-                context.Journal.AddOrUpdate(new Journal { Book = context.Books.Local.FirstOrDefault(m => m.BookName == b.BookName), Shop = context.Shops.Local.FirstOrDefault(r => r.ShopName == s.ShopName), InStock = Convert.ToInt16(splittedstring[9]), Expected = Convert.ToInt16(splittedstring[10]) });
+                context.Journal.AddOrUpdate(new Journal { Book = context.Books.Local.FirstOrDefault(m => m.BookName == b.BookName), Shop = context.Shops.Local.FirstOrDefault(r => r.ShopName == s.ShopName), InStock = Convert.ToInt16(splittedstring[10]), Expected = Convert.ToInt16(splittedstring[11]) });
 
 
 
 
             }
+
         }
     }
 }
