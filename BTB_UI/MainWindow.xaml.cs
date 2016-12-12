@@ -24,10 +24,5 @@ namespace BTB_UI
         {
             InitializeComponent();
         }
-
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
