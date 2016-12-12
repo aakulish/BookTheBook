@@ -1,12 +1,29 @@
-﻿<Window x:Class="BTB_UI.MainWindow"
+﻿<Window x:Class="WPFtest.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BTB_UI"
+        xmlns:local="clr-namespace:WPFtest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="BookTheBook" Height="375" Width="600" DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="75"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.Column="1" Grid.ColumnSpan="3" Margin="5"/>
+        <Button Grid.Column="4" Margin="5">Search</Button>
+        <DataGrid Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" BorderThickness="0" Background="White" HeadersVisibility="None"/>
     </Grid>
 </Window>
