@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BTB_UI"
         mc:Ignorable="d"
-        Title="BookTheBook" Height="375" Width="600" DataContext="{Binding Main, Source={StaticResource Locator}}">
+        Title="BookTheBook" Height="600" Width="960" DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -24,6 +24,44 @@
 
         <TextBox Grid.Column="1" Grid.ColumnSpan="3" Margin="5"/>
         <Button Grid.Column="4" Margin="5">Search</Button>
-        <DataGrid Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" BorderThickness="0" Background="White" HeadersVisibility="None"/>
+        <DataGrid Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" BorderThickness="0" Background="White" HeadersVisibility="None"/>
+
+        <TabControl Grid.Row="1" Grid.RowSpan="4">
+            <TabItem Name="categoriesTab">
+                <TabItem.Header>
+                    <TextBlock>Categories</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ListBox BorderThickness="0" SelectedItem="{Binding SelectedTabItem}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text=""/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem.Content>
+            </TabItem>
+
+            <TabItem Name="genresTab">
+
+                <TabItem.Header>
+                    <TextBlock>Genres</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ListBox BorderThickness="0" SelectedItem="{Binding SelectedTabItem}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text=""/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem.Content>
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
