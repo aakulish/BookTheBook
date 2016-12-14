@@ -36,6 +36,20 @@ namespace BTB_Data.Migrations
             {
                 splittedstring = str[i].Split(splitter);
 
+                string cat = splittedstring[2];
+                var g = context.Category.Local.FirstOrDefault(c => c.category == cat);
+
+                if (g != null)
+                {
+
+                }
+                else
+                {
+
+                    g = new Category { category=splittedstring[2] };
+                    context.Category.AddOrUpdate(c => c.category, g);
+                }
+
                 string k = splittedstring[0];
                 var b = context.Books.Local.FirstOrDefault(c => c.BookName == k);
 
@@ -46,12 +60,16 @@ namespace BTB_Data.Migrations
                 else
                 {
 
-                    b = new Book { BookName = splittedstring[0], Author = splittedstring[1], Category= splittedstring[2], Style = splittedstring[3], DateOfRelease = Convert.ToDateTime(splittedstring[4]), Description = splittedstring[5], Price = Convert.ToDouble(splittedstring[6]), LinkToCover = splittedstring[7] };
+                    b = new Book { BookName = splittedstring[0], Author = splittedstring[1], Category = context.Category.Local.FirstOrDefault(l => l.category == g.category), Style = splittedstring[3], DateOfRelease = Convert.ToDateTime(splittedstring[4]), Description = splittedstring[5], Price = Convert.ToDouble(splittedstring[6]), LinkToCover = splittedstring[7] };
                     context.Books.AddOrUpdate(c => c.BookName, b);
                 }
 
 
-                string sn = splittedstring[2];
+
+
+
+
+                string sn = splittedstring[8];
                 var s = context.Shops.Local.FirstOrDefault(c => c.ShopName == sn);
                 if (s != null)
                 {
@@ -71,7 +89,7 @@ namespace BTB_Data.Migrations
 
 
             }
-
+            
         }
     }
 }
