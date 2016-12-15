@@ -31,7 +31,7 @@ namespace BTB_Data.Migrations
             string[] str, splittedstring;
             char[] splitter = new char[] { ';' };
 
-            str = File.ReadAllLines(@"base.csv", Encoding.GetEncoding("UTF-8"));
+            str = File.ReadAllLines(@"D:\HSE\2 курс\Программирование\TeamProject\BookTheBook\base.csv", Encoding.GetEncoding("UTF-8"));
             for (int i = 0; i < str.Length; i++)
             {
                 splittedstring = str[i].Split(splitter);
