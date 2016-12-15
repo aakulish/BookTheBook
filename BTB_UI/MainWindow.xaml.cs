@@ -15,10 +15,11 @@ namespace BTB_UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
-            DataGridTemplateColumn imagecol1 = new DataGridTemplateColumn();
+          /*DataGridTemplateColumn imagecol1 = new DataGridTemplateColumn();
             DataGridTemplateColumn imagecol2 = new DataGridTemplateColumn();
             DataGridTemplateColumn imagecol3 = new DataGridTemplateColumn();
             DataGridTemplateColumn imagecol4 = new DataGridTemplateColumn();  
@@ -49,24 +50,5 @@ namespace BTB_UI
             }
             return covers;
         }
-
-        private void OnDownloaded(List<Image> images)
-        {
-
-            
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        List<>
     }
 }

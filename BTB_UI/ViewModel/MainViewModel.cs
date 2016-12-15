@@ -27,7 +27,7 @@ namespace BTB_UI.ViewModel
             set { Set(() => NewlyReleased, ref _newlyReleased, value); }
         }
 
-        Repository repo;
+        Repository repo = new Repository();
 
         private void GetNewlyReleased()
         {
@@ -42,7 +42,7 @@ namespace BTB_UI.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            NewlyReleasedCommand = new RelayCommand(GetNewlyReleased, () => NewlyReleased != null);
+            NewlyReleasedCommand = new RelayCommand(GetNewlyReleased, () => NewlyReleased == null);
             ////if (IsInDesignMode)
             ////{
             ////    // Code runs in Blend --> create design time data.
