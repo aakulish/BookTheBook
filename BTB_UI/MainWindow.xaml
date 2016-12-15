@@ -23,9 +23,16 @@
         </Grid.ColumnDefinitions>
 
         <TextBox Grid.Column="1" Grid.ColumnSpan="3" Margin="5"/>
-        <Button Grid.Column="4" Margin="5">Search</Button>
-        <DataGrid Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" BorderThickness="0" Background="White" HeadersVisibility="None"/>
-
+        <Button Grid.Column="4" Margin="5" Click="Button_Click">Search</Button>
+        <DataGrid x:Name="dataGridView1" Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" BorderThickness="0" Background="White" HeadersVisibility="None" SelectionChanged="dataGridView1_SelectionChanged">
+        <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
+            <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                        <Image Source="{Binding Image}"/>
+                </DataTemplate>
+            </DataGridTemplateColumn.CellTemplate>
+        </DataGridTemplateColumn>
+        </DataGrid>
         <TabControl Grid.Row="1" Grid.RowSpan="4">
             <TabItem Name="categoriesTab">
                 <TabItem.Header>

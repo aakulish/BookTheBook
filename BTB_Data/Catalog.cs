@@ -8,7 +8,7 @@ namespace BTB_Data
 {
     public class Catalog
     {
-        public Catalog(string bookname, string author, string style, string category, DateTime dateofrelease, string description, double price, string linktocover)
+        public Catalog(string bookname, string author, string style, Category category, DateTime dateofrelease, string description, double price, string linktocover)
         {
             this.bookname = bookname;
             this.author = author;
@@ -24,7 +24,7 @@ namespace BTB_Data
         public string bookname { get; set; }
         public string author { get; set; }
         public string style { get; set; }
-        public string category { get; set; }
+        public Category category { get; set; }
         public DateTime dateofrelease { get; set; }
         public string description { get; set; }
         public double price { get; set; }
