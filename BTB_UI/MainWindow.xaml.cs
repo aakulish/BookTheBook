@@ -1,17 +1,12 @@
-﻿using System;
+﻿using BTB_Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
+
+
 
 namespace BTB_UI
 {
@@ -20,9 +15,32 @@ namespace BTB_UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
+         
+
+            Repository re = new Repository();
+            re.NewlyReleased();
+            DownloadCovers imgdownl = new DownloadCovers();
+            imgdownl.DownloadImage(GetCoverUrls(re.ListOfBooks), dataGridView1, 100, 154);
+            
+
+        }
+
+        public List<string> covers;
+
+        public List<string> GetCoverUrls(List<Catalog> booksDisplayed)
+        {
+            covers = new List<string>();
+            covers.Clear();
+            foreach (Catalog b in booksDisplayed)
+            {
+                covers.Add(b.linktocover);
+
+            }
+            return covers;
         }
     }
 }

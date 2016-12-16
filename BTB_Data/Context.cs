@@ -10,12 +10,13 @@ namespace BTB_Data
     public class Context : DbContext
     {
         public DbSet<Book> Books { get; set; }
+        public DbSet<Category> Category { get; set; }
         public DbSet<Shop> Shops { get; set; }
         public DbSet<Journal> Journal { get; set; }
 
 
 
-        public Context() : base("testbase4")
+        public Context() : base("testbase5")
         {
         }
     }

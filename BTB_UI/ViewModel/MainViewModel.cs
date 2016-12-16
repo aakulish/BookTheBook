@@ -1,4 +1,7 @@
 using GalaSoft.MvvmLight;
+using BTB_Data;
+using System.Collections.Generic;
+using GalaSoft.MvvmLight.Command;
 
 namespace BTB_UI.ViewModel
 {
@@ -16,11 +19,30 @@ namespace BTB_UI.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private List<Catalog> _newlyReleased;
+
+        public List<Catalog> NewlyReleased
+        {
+            get { return _newlyReleased; }
+            set { Set(() => NewlyReleased, ref _newlyReleased, value); }
+        }
+
+        Repository repo = new Repository();
+
+        private void GetNewlyReleased()
+        {
+            var result = repo.NewlyReleased();
+            NewlyReleased = result;
+        }
+
+        public RelayCommand NewlyReleasedCommand { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
+            NewlyReleasedCommand = new RelayCommand(GetNewlyReleased, () => NewlyReleased == null);
             ////if (IsInDesignMode)
             ////{
             ////    // Code runs in Blend --> create design time data.
