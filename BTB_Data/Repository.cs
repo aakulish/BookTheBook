@@ -11,7 +11,7 @@ namespace BTB_Data
         public List<Catalog> ListOfBooks= new List<Catalog>();
 
 
-        public List<Catalog> NewlyReleased()
+        public List<Catalog> NewlyReleased(int start,int end)
         {
             ListOfBooks.Clear();
             Context context = new Context();
@@ -20,7 +20,7 @@ namespace BTB_Data
                          select b;
                        
                          
-            for(int i=0;i<8; i++)
+            for(int i=start;i<end; i++)
             {
                 var re = result.ToList()[i];
                 var re1 = new Catalog(re.BookName, re.Author, re.Style, re.Category, re.DateOfRelease, re.Description, re.Price, re.LinkToCover);

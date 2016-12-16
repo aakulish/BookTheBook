@@ -6,51 +6,65 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Interop;
+using System.Windows;
+using System.Windows.Media.Imaging;
+
 
 namespace BTB_UI
 {
     public class DownloadCovers
     {
-        public Bitmap ImageRequest(string Url)
-        {
-            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(Url);
-            myRequest.Method = "GET";
-            HttpWebResponse myResponse = (HttpWebResponse)myRequest.GetResponse();
-            Bitmap bmp = new Bitmap(myResponse.GetResponseStream());
-            myResponse.Close();
-            return bmp;
-        }
+       
 
+      
 
         public void DownloadImage(List<string> Urls, System.Windows.Controls.DataGrid datagrid, int imageWidth, int imageHeight)
         {
-            List<Bitmap> ImagesList = new List<Bitmap>();
+            List<ImageSource> ImagesList = new List<ImageSource>();
+            for (int i = 0; i <= (Urls.Count - 1); i++)
+            {
+                HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(Urls[i]);
+                myRequest.Method = "GET";
+                HttpWebResponse myResponse = (HttpWebResponse)myRequest.GetResponse();
+                Bitmap img = new Bitmap(myResponse.GetResponseStream());
+                myResponse.Close();
+                var renewimg = Imaging.CreateBitmapSourceFromHBitmap(img.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromWidthAndHeight(imageWidth, imageHeight));
+                ImagesList.Add(renewimg);
+            }
+
+            datagrid.Items.Add(ImagesList[1]);
+
+
+
+            /*List<ImageSource> ImagesList = new List<ImageSource>();
             Task.Factory.StartNew(() =>
             {
                 for (int i = 0; i <= (Urls.Count - 1); i++)
                 {
-                    Bitmap img = ImageRequest(Urls[i]);
-                    ImagesList.Add(new Bitmap(img, new Size(imageWidth, imageHeight)));
-
+                    HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(Urls[i]);
+                    myRequest.Method = "GET";
+                    HttpWebResponse myResponse = (HttpWebResponse)myRequest.GetResponse();
+                    Bitmap img = new Bitmap(myResponse.GetResponseStream());
+                    myResponse.Close();
+                    var renewimg = Imaging.CreateBitmapSourceFromHBitmap(img.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromWidthAndHeight(imageWidth, imageHeight));
+                    ImagesList.Add(renewimg);
                 }
                 datagrid.Dispatcher.BeginInvoke(new Action(delegate ()
                 {
-                    DataGridTemplateColumn imagecol1 = new DataGridTemplateColumn();
-                    DataGridTemplateColumn imagecol2 = new DataGridTemplateColumn();
-                    DataGridTemplateColumn imagecol3 = new DataGridTemplateColumn();
-                    DataGridTemplateColumn imagecol4 = new DataGridTemplateColumn();
+                    
+                    datagrid.Items.Add(ImagesList[0]);
 
-                    datagrid.Columns.Add(imagecol1);
-                    datagrid.Columns.Add(imagecol2);
-                    datagrid.Columns.Add(imagecol3);
-                    datagrid.Columns.Add(imagecol4);
-                    datagrid.Items.Clear();
-                    datagrid.Items.Add(ImagesList[1]);
-                    imagecol1.CellTemplate.Resources.Source = ImagesList[1];
                 }));
 
             });
+            */
+
+
 
         }
+
+       
     }
 }
