@@ -9,7 +9,7 @@ namespace BTB_Data
     public class Shop
     {
         public int ID { get; set; }
-        public string ShopName { get; set; }
+        public string ShopName { get; set; } //test
         public string Address { get; set; }
     }
 }
