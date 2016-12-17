@@ -13,6 +13,8 @@ namespace BTB_WF_UI
 {
     public partial class BookInfo : Form
     {
+        public List<CartWindow> OrderCart = new List<CartWindow>();
+
         public BookInfo()
         {
             InitializeComponent();
@@ -58,6 +60,16 @@ namespace BTB_WF_UI
             button4.Visible = false;
             dataGridView1.Visible = false;
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Cart addtocart = new Cart(label1.Text,Convert.ToDouble(button2.Text.Remove(0,1)), dataGridView1.SelectedCells[0].Value.ToString(), Convert.ToInt32(dataGridView1.SelectedCells[2].Value), Convert.ToInt32(dataGridView1.SelectedCells[3].Value));
+                CartWindow cw = new CartWindow();
+                
+            }            
         }
     }
 }
