@@ -29,10 +29,7 @@ namespace BTB_Data
         public string description { get; set; }
         public double price { get; set; }
         public string linktocover { get; set; }
-        public string shopname { get; set; }
-        public string address { get; set; }
-        public int instock { get; set; }
-        public int expected { get; set; }
+        
 
 
     }

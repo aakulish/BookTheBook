@@ -74,6 +74,7 @@
       <Link>Repository.cs</Link>
     </Compile>
     <Compile Include="Shop.cs" />
+    <Compile Include="ShopList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
