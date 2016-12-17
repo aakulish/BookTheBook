@@ -13,7 +13,7 @@ namespace BTB_WF_UI
         
 
 
-        public void DownloadImage(List<string> Urls, Action<List<Image>> onReady, int imageWidth, int imageHeight)
+        public void DownloadImage(List<string> Urls, Action<List<Image>> AfterDownload, int imageWidth, int imageHeight)
         {
             List<Image> ImagesList = new List<Image>();
             
@@ -24,12 +24,14 @@ namespace BTB_WF_UI
                     HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(Urls[i]);
                     myRequest.Method = "GET";
                     HttpWebResponse myResponse = (HttpWebResponse)myRequest.GetResponse();
-                    System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(myResponse.GetResponseStream());
+                    System.Drawing.Bitmap bmpimage = new System.Drawing.Bitmap(myResponse.GetResponseStream());
                     myResponse.Close();                    
-                    ImagesList.Add((Image)(new Bitmap(bmp, new Size(imageWidth, imageHeight))));
+                    ImagesList.Add((Image)(new Bitmap(bmpimage, new Size(imageWidth, imageHeight))));
                 }
-                onReady(ImagesList);
+                AfterDownload(ImagesList);
             });
+            
+
         }
     }
 }

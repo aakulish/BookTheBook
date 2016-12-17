@@ -20,11 +20,11 @@ namespace BTB_Data
             this.linktocover = linktocover;        
 
         }
-
+       
         public string bookname { get; set; }
         public string author { get; set; }
         public string style { get; set; }
-        public Category category { get; set; }
+        public Category category { get; set; }        
         public DateTime dateofrelease { get; set; }
         public string description { get; set; }
         public double price { get; set; }
