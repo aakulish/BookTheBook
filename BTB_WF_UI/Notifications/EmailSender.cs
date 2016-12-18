@@ -39,7 +39,7 @@ namespace BTB_WF_UI
                 textofmessage = textofmessage + String.Format("\n {0,-50}    {1,-8}      {2,-5}     {3,-20}    {4,-10}", bookn, listofitems[i].price, 1, listofitems[i].shopname, availability);
 
             }
-            textofmessage = textofmessage + String.Format("\n In Total:{0}\n\n Best wishes Your BooktheBook", OrderListClass.Intotal);
+            textofmessage = textofmessage + String.Format("\n In Total: ${0}\n\n Best wishes Your BooktheBook", OrderListClass.Intotal);
             Content content = new Content("text/plain", textofmessage);
             Mail mail = new Mail(from, subject, to, content);
             dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());

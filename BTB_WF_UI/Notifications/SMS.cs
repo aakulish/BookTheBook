@@ -19,10 +19,12 @@ namespace BTB_WF_UI.Notifications
                       
             string textofmessage = String.Format("Thanks for Your order:  {0}\n", ordernum);
             textofmessage = textofmessage + String.Format("\nIn Total: ${0}\n\n Best wishes, Your BooktheBook", OrderListClass.Intotal);
-            string URL = String.Format("https://gate.smsaero.ru/send/?user=1kulish@mail.ru&password=andrey19&to={0}&text={1}&from=news",recipient,textofmessage);
+            string URL = String.Format("https://gate.smsaero.ru/send/?user=1kulish@mail.ru&password=z1CgHvGBRNFAAavwCwUjX3lnfFrv&to={0}&text={1}&from=news", recipient,textofmessage);
 
             HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(URL);
-
+            myRequest.Method = "GET";
+            HttpWebResponse myResponse = (HttpWebResponse)myRequest.GetResponse();
+            myResponse.Close();
         }
         
     }

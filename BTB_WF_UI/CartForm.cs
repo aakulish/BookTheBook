@@ -51,8 +51,23 @@ namespace BTB_WF_UI
             int order = (int)rnd.Next(10000, 99999);
             EmailSender es = new EmailSender();
             SMS sms = new SMS();
-            es.Notify(OrderListClass.Value, textBox1.Text,order);
-            sms.Notify(OrderListClass.Value, textBox1.Text, order);
+            int n;
+            if (textBox2.Text != "")
+            {
+
+
+                if (textBox2.Text[0] != 7 && textBox2.Text.Length != 10 && int.TryParse(textBox2.Text, out n) == false)
+                {
+                    MessageBox.Show("Phone has to contain 10 numbers and starts from 7)", "Phone number");
+                    textBox2.Clear();
+                }
+                else
+                {
+                    sms.Notify(OrderListClass.Value, textBox2.Text, order);
+                }
+            }
+            es.Notify(OrderListClass.Value, textBox1.Text, order);
+            
             this.Close();
             
 
