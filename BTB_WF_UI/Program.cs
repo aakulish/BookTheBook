@@ -16,7 +16,7 @@ namespace BTB_WF_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormTEST()); 
+            Application.Run(new Form1()); 
         }
 
         

@@ -70,6 +70,7 @@
       <DependentUpon>201612142344047_CategoryTable1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="OrderListClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\..\Авик\Repository.cs">
       <Link>Repository.cs</Link>

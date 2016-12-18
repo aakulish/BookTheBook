@@ -33,7 +33,7 @@ namespace BTB_WF_UI
             button4.Visible = true;
             dataGridView1.Visible = true;
             Repository re = new Repository();
-           /* re.AvailableBook(label1.Text);
+           re.AvailableBook(label1.Text);
             foreach (ShopList jr in re.ListOfShops)
             {
                 string sh = jr.shopname;
@@ -44,7 +44,7 @@ namespace BTB_WF_UI
                 dataGridView1.Rows.Add(items);
 
             }
-            */
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace BTB_WF_UI
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Cart addtocart = new Cart(label1.Text,Convert.ToDouble(button2.Text.Remove(0,1)), dataGridView1.SelectedCells[0].Value.ToString(), Convert.ToInt32(dataGridView1.SelectedCells[2].Value), Convert.ToInt32(dataGridView1.SelectedCells[3].Value));
-                Data.Value.Add(addtocart);               
+                OrderListClass.Value.Add(addtocart);               
 
             }            
         }
