@@ -35,12 +35,12 @@
             this.CategoryCheckListBox = new System.Windows.Forms.CheckedListBox();
             this.GenrePage = new System.Windows.Forms.TabPage();
             this.GenreCheckListBox = new System.Windows.Forms.CheckedListBox();
-            this.WhatsNewGridView = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.StartWindowGridView = new System.Windows.Forms.DataGridView();
+            this.DataGridViewHeaderLabel = new System.Windows.Forms.Label();
             this.CatGenreTabControl.SuspendLayout();
             this.CategoryPage.SuspendLayout();
             this.GenrePage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WhatsNewGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StartWindowGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchTextBox
@@ -65,6 +65,7 @@
             this.SearchButton.TabIndex = 1;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // CatGenreTabControl
             // 
@@ -121,30 +122,30 @@
             this.GenreCheckListBox.Size = new System.Drawing.Size(192, 441);
             this.GenreCheckListBox.TabIndex = 1;
             // 
-            // WhatsNewGridView
+            // StartWindowGridView
             // 
-            this.WhatsNewGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.StartWindowGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.WhatsNewGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.WhatsNewGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.WhatsNewGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.WhatsNewGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.WhatsNewGridView.Location = new System.Drawing.Point(222, 80);
-            this.WhatsNewGridView.Name = "WhatsNewGridView";
-            this.WhatsNewGridView.RowHeadersVisible = false;
-            this.WhatsNewGridView.Size = new System.Drawing.Size(708, 469);
-            this.WhatsNewGridView.TabIndex = 3;
+            this.StartWindowGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.StartWindowGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.StartWindowGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.StartWindowGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StartWindowGridView.Location = new System.Drawing.Point(222, 80);
+            this.StartWindowGridView.Name = "StartWindowGridView";
+            this.StartWindowGridView.RowHeadersVisible = false;
+            this.StartWindowGridView.Size = new System.Drawing.Size(708, 469);
+            this.StartWindowGridView.TabIndex = 3;
             // 
-            // label1
+            // DataGridViewHeaderLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(222, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "New Releases";
+            this.DataGridViewHeaderLabel.AutoSize = true;
+            this.DataGridViewHeaderLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridViewHeaderLabel.Location = new System.Drawing.Point(222, 56);
+            this.DataGridViewHeaderLabel.Name = "DataGridViewHeaderLabel";
+            this.DataGridViewHeaderLabel.Size = new System.Drawing.Size(100, 20);
+            this.DataGridViewHeaderLabel.TabIndex = 4;
+            this.DataGridViewHeaderLabel.Text = "New Releases:";
             // 
             // FormTEST
             // 
@@ -152,8 +153,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(944, 561);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.WhatsNewGridView);
+            this.Controls.Add(this.DataGridViewHeaderLabel);
+            this.Controls.Add(this.StartWindowGridView);
             this.Controls.Add(this.CatGenreTabControl);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SearchTextBox);
@@ -163,7 +164,7 @@
             this.CatGenreTabControl.ResumeLayout(false);
             this.CategoryPage.ResumeLayout(false);
             this.GenrePage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.WhatsNewGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StartWindowGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,7 +179,7 @@
         private System.Windows.Forms.TabPage GenrePage;
         private System.Windows.Forms.CheckedListBox CategoryCheckListBox;
         private System.Windows.Forms.CheckedListBox GenreCheckListBox;
-        private System.Windows.Forms.DataGridView WhatsNewGridView;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView StartWindowGridView;
+        private System.Windows.Forms.Label DataGridViewHeaderLabel;
     }
 }
