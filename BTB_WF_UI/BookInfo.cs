@@ -33,7 +33,7 @@ namespace BTB_WF_UI
             button4.Visible = true;
             dataGridView1.Visible = true;
             Repository re = new Repository();
-            re.AvailableBook(label1.Text);
+           /* re.AvailableBook(label1.Text);
             foreach (ShopList jr in re.ListOfShops)
             {
                 string sh = jr.shopname;
@@ -44,6 +44,7 @@ namespace BTB_WF_UI
                 dataGridView1.Rows.Add(items);
 
             }
+            */
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -19,13 +19,13 @@ namespace BTB_UI
         public MainWindow()
         {
             InitializeComponent();
-         
+        /* 
 
             Repository re = new Repository();
             re.NewlyReleased();
             DownloadCovers imgdownl = new DownloadCovers();
             imgdownl.DownloadImage(GetCoverUrls(re.ListOfBooks), dataGridView1, 100, 154);
-            
+          */  
 
         }
 

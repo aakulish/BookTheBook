@@ -19,6 +19,7 @@ namespace BTB_UI.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        /*
         private List<Catalog> _newlyReleased;
 
         public List<Catalog> NewlyReleased
@@ -52,5 +53,6 @@ namespace BTB_UI.ViewModel
             ////    // Code runs "for real"
             ////}
         }
+        */
     }
 }

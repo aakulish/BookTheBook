@@ -17,11 +17,11 @@ namespace BTB_WF_UI
         int timerCounter = 0;
         public List<string> covers = new List<string>();
         public List<string> covers1 = new List<string>();
-        public List<PictureBox> pb = new List<PictureBox>();
+        public List<PictureBox> pb = new List<PictureBox>();        
 
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
             pb.Add(pictureBox1);
             pb.Add(pictureBox2);
             pb.Add(pictureBox3);
@@ -31,10 +31,10 @@ namespace BTB_WF_UI
             pb.Add(pictureBox7);
             pb.Add(pictureBox8);
             timer1.Start();
-            Repository repo = new Repository();
-            DownloadImages imagedownl = new DownloadImages();
+            Repository repo = new Repository();            
+            DownloadImages imagedownl = new DownloadImages();    
             repo.BestSellers(0, 4);
-            imagedownl.DownloadImage(GetCoverUrls(repo.ListOfBooks), InsertingtoWindow2row, 100, 154);
+            imagedownl.DownloadImage(GetCoverUrls(repo.ListOfBooks), InsertingtoWindow2row, 100, 154);            
             repo.NewlyReleased(0, 4);
             imagedownl.DownloadImage(GetCoverUrls1(repo.ListOfBooks), InsertingtoWindow1row, 100, 154);
 
@@ -42,7 +42,7 @@ namespace BTB_WF_UI
 
         private void InsertingtoWindow1row(List<Image> imagesna)
         {
-
+            
             for (int i = 0; i < 4; i++)
             {
                 pb[i].Invoke((MethodInvoker)(() => pb[i].Image = imagesna[i]));
@@ -54,7 +54,7 @@ namespace BTB_WF_UI
 
             for (int i = 0; i < 4; i++)
             {
-                pb[i + 4].Invoke((MethodInvoker)(() => pb[i + 4].Image = imagesbs[i]));
+                pb[i+4].Invoke((MethodInvoker)(() => pb[i+4].Image = imagesbs[i]));
             }
         }
 
@@ -66,7 +66,7 @@ namespace BTB_WF_UI
                 covers.Add(b.linktocover);
 
             }
-            return covers;
+            return covers;            
         }
 
         public List<string> GetCoverUrls1(List<Catalog> booksDisplayed)
@@ -79,18 +79,18 @@ namespace BTB_WF_UI
             }
             return covers1;
         }
-
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             ++timerCounter;
-            int startimage = 0;
-            int endimage = 0;
-            if (timerCounter % 3 == 0)
+            int startimage=0;
+            int endimage=0;
+            if (timerCounter%3==0)
             {
                 startimage = 0;
-                endimage = 4;
+                endimage = 4;                 
             }
-
+            
             else if (timerCounter % 3 == 1)
             {
                 startimage = 4;
@@ -102,7 +102,7 @@ namespace BTB_WF_UI
                 endimage = 12;
             }
 
-            Repository repo = new Repository();
+            Repository repo = new Repository();            
             DownloadImages imagedownl = new DownloadImages();
             repo.NewlyReleased(startimage, endimage);
             imagedownl.DownloadImage(GetCoverUrls(repo.ListOfBooks), InsertingtoWindow1row, 100, 154);
@@ -110,6 +110,6 @@ namespace BTB_WF_UI
             imagedownl.DownloadImage(GetCoverUrls1(repo.ListOfBooks), InsertingtoWindow2row, 100, 154);
         }
 
-
+        
     }
 }
