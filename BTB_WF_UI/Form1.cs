@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +19,15 @@ namespace BTB_WF_UI
         int timerCounter = 0;
         public List<string> covers = new List<string>();
         public List<string> covers1 = new List<string>();
-        public List<PictureBox> pb = new List<PictureBox>();        
+        public List<PictureBox> pb = new List<PictureBox>();
+        public List<Catalog> locallist1row = new List<Catalog>();
+        public List<Catalog> locallist2row = new List<Catalog>();
+        
 
         public Form1()
         {
-            InitializeComponent();            
+            CallBackMy.callbackEventHandler = new CallBackMy.callbackEvent(this.Reload);
+            InitializeComponent();
             pb.Add(pictureBox1);
             pb.Add(pictureBox2);
             pb.Add(pictureBox3);
@@ -31,18 +37,18 @@ namespace BTB_WF_UI
             pb.Add(pictureBox7);
             pb.Add(pictureBox8);
             timer1.Start();
-            Repository repo = new Repository();            
-            DownloadImages imagedownl = new DownloadImages();    
-            repo.BestSellers(0, 4);
-            imagedownl.DownloadImage(GetCoverUrls(repo.ListOfBooks), InsertingtoWindow2row, 100, 154);            
-            repo.NewlyReleased(0, 4);
-            imagedownl.DownloadImage(GetCoverUrls1(repo.ListOfBooks), InsertingtoWindow1row, 100, 154);
-
+            Repository re = new Repository();            
+            MainWindowImages(0, 4);
+            re.ListofCategoriesRequest();
+            foreach(string str in re.ListofCategories)
+            {
+                listBox1.Items.Add(str);
+            }
         }
 
         private void InsertingtoWindow1row(List<Image> imagesna)
         {
-            
+
             for (int i = 0; i < 4; i++)
             {
                 pb[i].Invoke((MethodInvoker)(() => pb[i].Image = imagesna[i]));
@@ -54,7 +60,25 @@ namespace BTB_WF_UI
 
             for (int i = 0; i < 4; i++)
             {
-                pb[i+4].Invoke((MethodInvoker)(() => pb[i+4].Image = imagesbs[i]));
+                pb[i + 4].Invoke((MethodInvoker)(() => pb[i + 4].Image = imagesbs[i]));
+            }
+        }
+
+        private void InsertingtoDataGrid(List<Image> imagesbs)
+        {
+
+            for (int i = 0; i < imagesbs.Count(); i++)
+            {
+
+
+                dataGridView1.Invoke((MethodInvoker)(() =>
+                {
+                    if (i % 4 == 0)
+                        dataGridView1.Rows.Add();
+                    dataGridView1.Rows[i / 4].Cells[i % 4].Value = imagesbs[i];
+                }
+                ));
+
             }
         }
 
@@ -66,7 +90,7 @@ namespace BTB_WF_UI
                 covers.Add(b.linktocover);
 
             }
-            return covers;            
+            return covers;
         }
 
         public List<string> GetCoverUrls1(List<Catalog> booksDisplayed)
@@ -79,18 +103,18 @@ namespace BTB_WF_UI
             }
             return covers1;
         }
-        
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             ++timerCounter;
-            int startimage=0;
-            int endimage=0;
-            if (timerCounter%3==0)
+            int startimage = 0;
+            int endimage = 0;
+            if (timerCounter % 3 == 0)
             {
                 startimage = 0;
-                endimage = 4;                 
+                endimage = 4;
             }
-            
+
             else if (timerCounter % 3 == 1)
             {
                 startimage = 4;
@@ -102,14 +126,199 @@ namespace BTB_WF_UI
                 endimage = 12;
             }
 
-            Repository repo = new Repository();            
-            DownloadImages imagedownl = new DownloadImages();
-            repo.NewlyReleased(startimage, endimage);
-            imagedownl.DownloadImage(GetCoverUrls(repo.ListOfBooks), InsertingtoWindow1row, 100, 154);
-            repo.BestSellers(startimage, endimage);
-            imagedownl.DownloadImage(GetCoverUrls1(repo.ListOfBooks), InsertingtoWindow2row, 100, 154);
+            MainWindowImages(startimage, endimage);
         }
 
-        
+
+
+        public void MainWindowImages(int s, int e)
+        {
+            Repository repo = new Repository();
+            DownloadImages imagedownl = new DownloadImages();
+            repo.NewlyReleased(s, e);
+            imagedownl.DownloadImage(GetCoverUrls(repo.ListOfBooks), InsertingtoWindow1row, 100, 154);
+            repo.BestSellers(s, e);
+            imagedownl.DownloadImage(GetCoverUrls1(repo.ListOfBooks1), InsertingtoWindow2row, 100, 154);
+            locallist1row.Clear();
+            locallist2row.Clear();
+            locallist1row = repo.ListOfBooks;
+            locallist2row = repo.ListOfBooks1;
+        }
+        public void BookInfoWindowOpen(PictureBox pi1, int i)
+        {
+            BookInfo bi = new BookInfo();
+            bi.pictureBox1.Image = pi1.Image;
+            if (pi1 == pictureBox1 || pi1 == pictureBox2 || pi1 == pictureBox3 || pi1 == pictureBox4)
+            {
+                bi.label1.Text = locallist1row[i].bookname;
+                bi.label2.Text = locallist1row[i].author;
+                bi.label3.Text = locallist1row[i].style;
+                bi.button1.Text = locallist1row[i].category.category;
+                bi.label4.Text = locallist1row[i].dateofrelease.ToShortDateString();
+                bi.label5.Text = locallist1row[i].description;
+                bi.button2.Text = "$" + locallist1row[i].price.ToString();
+
+            }
+            else
+            {
+                bi.label1.Text = locallist2row[i].bookname;
+                bi.label2.Text = locallist2row[i].author;
+                bi.label3.Text = locallist2row[i].style;
+                bi.button1.Text = locallist2row[i].category.category;
+                bi.label4.Text = locallist2row[i].dateofrelease.ToShortDateString();
+                bi.label5.Text = locallist2row[i].description;
+                bi.button2.Text = "$" + locallist2row[i].price.ToString();
+
+            }
+
+            bi.Show();
+        }
+
+
+        public void ShowBooksfromCategory(string cat)
+        {
+            Repository re = new Repository();
+            DownloadImages imagedownl = new DownloadImages();
+            re.CategoryBook(cat);
+            ShowHideSearchTable(false);
+            imagedownl.DownloadImage(GetCoverUrls(re.ListOfBooks1), InsertingtoDataGrid, 100, 154);
+            locallist1row.Clear();
+            locallist1row = re.ListOfBooks1;
+        }
+
+        public void pictureBox1_Click(object sender, EventArgs e)
+        {
+            BookInfoWindowOpen(pictureBox1, 0);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            BookInfoWindowOpen(pictureBox2, 1);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            BookInfoWindowOpen(pictureBox3, 2);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            BookInfoWindowOpen(pictureBox4, 3);
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            BookInfoWindowOpen(pictureBox5, 0);
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            BookInfoWindowOpen(pictureBox6, 1);
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            BookInfoWindowOpen(pictureBox7, 2);
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            BookInfoWindowOpen(pictureBox8, 3);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            DownloadImages imagedownl = new DownloadImages();
+            Repository re = new Repository();
+            ShowHideSearchTable(false);           
+            re.Search(textBox1.Text);            
+            imagedownl.DownloadImage(GetCoverUrls(re.ListOfBooks), InsertingtoDataGrid, 100, 154);
+            locallist1row.Clear();
+            locallist1row = re.ListOfBooks;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ShowHideSearchTable(true);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            int i = dataGridView1.CurrentCell.ColumnIndex + dataGridView1.CurrentCell.RowIndex*4;
+            BookInfo bi = new BookInfo();
+            bi.pictureBox1.Image = BitmapToImage((Bitmap)dataGridView1.CurrentCell.Value);
+            bi.label1.Text = locallist1row[i].bookname;
+            bi.label2.Text = locallist1row[i].author;
+            bi.label3.Text = locallist1row[i].style;
+            bi.button1.Text= locallist1row[i].category.category;
+            bi.label4.Text = locallist1row[i].dateofrelease.ToShortDateString();
+            bi.label5.Text = locallist1row[i].description;
+            bi.button2.Text = "$" + locallist1row[i].price.ToString();
+            bi.Show();
+        }
+        public Image BitmapToImage(Bitmap map)
+        {
+            Stream imageStream = new MemoryStream();
+            map.Save(imageStream, ImageFormat.Png);
+            return Image.FromStream(imageStream);
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            ShowBooksfromCategory(listBox1.SelectedItem.ToString());
+        }
+        public void ShowHideSearchTable(bool val)
+        {
+            if (val==false)
+            {
+                timer1.Stop();
+                dataGridView1.Rows.Clear();
+            }
+            else
+            {
+                timer1.Start();
+            }
+                       
+            pictureBox1.Visible = val;
+            pictureBox2.Visible = val;
+            pictureBox3.Visible = val;
+            pictureBox4.Visible = val;
+            pictureBox5.Visible = val;
+            pictureBox6.Visible = val;
+            pictureBox7.Visible = val;
+            pictureBox8.Visible = val;
+            label1.Visible = val;
+            label2.Visible = val;
+            button4.Visible = !val;  
+            dataGridView1.Visible = !val;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CartForm cf = new CartForm();
+            string availability;
+            foreach (Cart cart in OrderListClass.Value)
+            {
+                if (cart.instock > 0)
+                    availability = "Now";
+                else
+                    availability = "1 Day";
+                cf.dataGridView1.Rows.Add(cart.bookname, cart.price,1,cart.shopname,availability);
+            }
+            
+            cf.Show();
+            cf.OverAllMoney();
+            cf.label2.Text = cf.cash;
+            
+        }
+
+       
+        void Reload(string param)
+        {
+            ShowBooksfromCategory(param);
+            
+        }
     }
 }
