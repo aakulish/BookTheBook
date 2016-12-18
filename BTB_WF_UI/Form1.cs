@@ -42,7 +42,7 @@ namespace BTB_WF_UI
             re.ListofCategoriesRequest();
             foreach(string str in re.ListofCategories)
             {
-                listBox1.Items.Add(str);
+                CategoryListBox.Items.Add(str);
             }
         }
 
@@ -71,11 +71,11 @@ namespace BTB_WF_UI
             {
 
 
-                dataGridView1.Invoke((MethodInvoker)(() =>
+                MainFormDataGridView.Invoke((MethodInvoker)(() =>
                 {
                     if (i % 4 == 0)
-                        dataGridView1.Rows.Add();
-                    dataGridView1.Rows[i / 4].Cells[i % 4].Value = imagesbs[i];
+                        MainFormDataGridView.Rows.Add();
+                    MainFormDataGridView.Rows[i / 4].Cells[i % 4].Value = imagesbs[i];
                 }
                 ));
 
@@ -232,7 +232,7 @@ namespace BTB_WF_UI
             DownloadImages imagedownl = new DownloadImages();
             Repository re = new Repository();
             ShowHideSearchTable(false);           
-            re.Search(textBox1.Text);            
+            re.Search(SearchTextBox.Text);            
             imagedownl.DownloadImage(GetCoverUrls(re.ListOfBooks), InsertingtoDataGrid, 100, 154);
             locallist1row.Clear();
             locallist1row = re.ListOfBooks;
@@ -246,9 +246,9 @@ namespace BTB_WF_UI
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
-            int i = dataGridView1.CurrentCell.ColumnIndex + dataGridView1.CurrentCell.RowIndex*4;
+            int i = MainFormDataGridView.CurrentCell.ColumnIndex + MainFormDataGridView.CurrentCell.RowIndex*4;
             BookInfo bi = new BookInfo();
-            bi.pictureBox1.Image = BitmapToImage((Bitmap)dataGridView1.CurrentCell.Value);
+            bi.pictureBox1.Image = BitmapToImage((Bitmap)MainFormDataGridView.CurrentCell.Value);
             bi.label1.Text = locallist1row[i].bookname;
             bi.label2.Text = locallist1row[i].author;
             bi.label3.Text = locallist1row[i].style;
@@ -267,14 +267,14 @@ namespace BTB_WF_UI
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-            ShowBooksfromCategory(listBox1.SelectedItem.ToString());
+            ShowBooksfromCategory(CategoryListBox.SelectedItem.ToString());
         }
         public void ShowHideSearchTable(bool val)
         {
             if (val==false)
             {
                 timer1.Stop();
-                dataGridView1.Rows.Clear();
+                MainFormDataGridView.Rows.Clear();
             }
             else
             {
@@ -289,10 +289,10 @@ namespace BTB_WF_UI
             pictureBox6.Visible = val;
             pictureBox7.Visible = val;
             pictureBox8.Visible = val;
-            label1.Visible = val;
-            label2.Visible = val;
-            button4.Visible = !val;  
-            dataGridView1.Visible = !val;
+            NewlyReleasedLabel.Visible = val;
+            BestSellersLabel.Visible = val;
+            BackButton.Visible = !val;  
+            MainFormDataGridView.Visible = !val;
         }
 
         private void button2_Click(object sender, EventArgs e)
