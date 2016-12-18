@@ -9,6 +9,6 @@ namespace BTB_WF_UI
 {
     interface INotify
     {
-        void Notify(List<Cart> listofitems,string recipient);
+        void Notify(List<Cart> listofitems,string recipient,int ordernum);
     }
 }

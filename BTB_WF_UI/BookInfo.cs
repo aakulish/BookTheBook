@@ -68,7 +68,8 @@ namespace BTB_WF_UI
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Cart addtocart = new Cart(label1.Text,Convert.ToDouble(button2.Text.Remove(0,1)), dataGridView1.SelectedCells[0].Value.ToString(), Convert.ToInt32(dataGridView1.SelectedCells[2].Value), Convert.ToInt32(dataGridView1.SelectedCells[3].Value));
-                OrderListClass.Value.Add(addtocart);               
+                OrderListClass.Value.Add(addtocart);
+                this.Close();           
 
             }            
         }
