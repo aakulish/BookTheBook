@@ -190,6 +190,7 @@
             // MainFormDataGridView
             // 
             this.MainFormDataGridView.AllowUserToAddRows = false;
+            this.MainFormDataGridView.AllowUserToDeleteRows = false;
             this.MainFormDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
