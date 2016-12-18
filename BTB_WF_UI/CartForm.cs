@@ -45,6 +45,5 @@ namespace BTB_WF_UI
             es.Notify(OrderListClass.Value, textBox1.Text);
 
         }
-        
     }
 }
