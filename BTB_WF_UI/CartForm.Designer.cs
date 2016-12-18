@@ -58,6 +58,8 @@
             this.Column5});
             this.dataGridView1.Location = new System.Drawing.Point(16, 18);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1.MaximumSize = new System.Drawing.Size(600, 218);
+            this.dataGridView1.MinimumSize = new System.Drawing.Size(600, 218);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(600, 218);
@@ -99,14 +101,14 @@
             this.label1.Location = new System.Drawing.Point(16, 257);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 20);
+            this.label1.Size = new System.Drawing.Size(44, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "In total:";
+            this.label1.Text = "Total:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 257);
+            this.label2.Location = new System.Drawing.Point(58, 257);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 20);
@@ -177,7 +179,9 @@
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(645, 396);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(645, 396);
             this.Name = "CartForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
