@@ -186,7 +186,9 @@
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(833, 411);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(833, 411);
             this.Name = "CartForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
