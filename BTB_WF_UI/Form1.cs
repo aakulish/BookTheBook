@@ -310,8 +310,9 @@ namespace BTB_WF_UI
             
             cf.Show();
             cf.OverAllMoney();
-            cf.label2.Text = cf.cash;
-            
+            OrderListClass.Intotal = cf.cash;
+            cf.label2.Text = cf.cash.ToString();
+
         }
 
        

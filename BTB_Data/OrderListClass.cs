@@ -10,5 +10,6 @@ namespace BTB_WF_UI
     public static class OrderListClass
     {
         public static List<Cart> Value = new List<Cart>();
+        public static double Intotal;
     }
 }

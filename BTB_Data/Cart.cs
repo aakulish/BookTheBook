@@ -17,10 +17,19 @@ namespace BTB_Data
             this.expected = expected;
 
         }
+        public Cart(string bookname, double price, string shopname, int needed)
+        {
+            this.bookname = bookname;
+            this.price = price;
+            this.shopname = shopname;
+            this.needed = needed;
+
+        }
         public string bookname { get; set; }
         public string shopname { get; set; }        
         public int instock { get; set; }
         public int expected { get; set; }
         public double price { get; set; }
+        public int needed { get; set; }
     }
 }

@@ -1,0 +1,1 @@
+Before compilating command Update-Database is needed
