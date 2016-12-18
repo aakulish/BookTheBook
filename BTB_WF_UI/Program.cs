@@ -16,7 +16,15 @@ namespace BTB_WF_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1()); //test
+            Application.Run(new Form1()); 
         }
+
+        
     }
+    public static class CallBackMy
+    {
+        public delegate void callbackEvent(string what);
+        public static callbackEvent callbackEventHandler;
+    }
+
 }//test

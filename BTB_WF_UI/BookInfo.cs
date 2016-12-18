@@ -14,7 +14,6 @@ namespace BTB_WF_UI
     public partial class BookInfo : Form
     {
         
-
         public BookInfo()
         {
             InitializeComponent();
@@ -68,10 +67,16 @@ namespace BTB_WF_UI
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Cart addtocart = new Cart(label1.Text,Convert.ToDouble(button2.Text.Remove(0,1)), dataGridView1.SelectedCells[0].Value.ToString(), Convert.ToInt32(dataGridView1.SelectedCells[2].Value), Convert.ToInt32(dataGridView1.SelectedCells[3].Value));
-                OrderListClass cw = new OrderListClass();
-                cw.OrderCart.Add(addtocart);
-                
+                Data.Value.Add(addtocart);               
+
             }            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           CallBackMy.callbackEventHandler(button1.Text.ToString());
+            this.Close();
+
         }
     }
 }

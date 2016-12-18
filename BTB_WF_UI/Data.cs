@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BTB_WF_UI
 {
-    public class OrderListClass
+    static class Data
     {
-        public List<Cart> OrderCart = new List<Cart>();
+        public static List<Cart> Value = new List<Cart>();
     }
 }
