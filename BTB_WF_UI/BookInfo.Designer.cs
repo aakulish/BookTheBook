@@ -114,7 +114,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(122, 119);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(4);
             this.label5.MaximumSize = new System.Drawing.Size(511, 0);
             this.label5.MinimumSize = new System.Drawing.Size(511, 0);
             this.label5.Name = "label5";
@@ -149,7 +149,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(510, 242);
+            this.dataGridView1.Size = new System.Drawing.Size(510, 128);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.Visible = false;
             // 
@@ -176,7 +176,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(13, 213);
+            this.button3.Location = new System.Drawing.Point(121, 175);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
@@ -200,7 +200,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(13, 251);
+            this.button4.Location = new System.Drawing.Point(229, 175);
             this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 28);
@@ -217,7 +217,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(649, 293);
+            this.ClientSize = new System.Drawing.Size(649, 214);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button3);

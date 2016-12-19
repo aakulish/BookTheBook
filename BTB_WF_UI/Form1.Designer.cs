@@ -73,7 +73,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Location = new System.Drawing.Point(180, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(180, 84);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 155);
@@ -84,7 +84,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Location = new System.Drawing.Point(326, 85);
+            this.pictureBox2.Location = new System.Drawing.Point(326, 84);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 155);
@@ -95,7 +95,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.Location = new System.Drawing.Point(484, 85);
+            this.pictureBox3.Location = new System.Drawing.Point(484, 84);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 155);
@@ -106,7 +106,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox4.Location = new System.Drawing.Point(624, 85);
+            this.pictureBox4.Location = new System.Drawing.Point(624, 84);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 155);
@@ -117,7 +117,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox5.Location = new System.Drawing.Point(624, 358);
+            this.pictureBox5.Location = new System.Drawing.Point(624, 357);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(100, 155);
@@ -128,7 +128,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox6.Location = new System.Drawing.Point(484, 358);
+            this.pictureBox6.Location = new System.Drawing.Point(484, 357);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(100, 155);
@@ -139,7 +139,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox7.Location = new System.Drawing.Point(326, 358);
+            this.pictureBox7.Location = new System.Drawing.Point(326, 357);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(100, 155);
@@ -150,7 +150,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox8.Location = new System.Drawing.Point(180, 358);
+            this.pictureBox8.Location = new System.Drawing.Point(180, 357);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(100, 155);
@@ -235,7 +235,7 @@
             this.MainFormDataGridView.ShowCellToolTips = false;
             this.MainFormDataGridView.ShowEditingIcon = false;
             this.MainFormDataGridView.ShowRowErrors = false;
-            this.MainFormDataGridView.Size = new System.Drawing.Size(544, 512);
+            this.MainFormDataGridView.Size = new System.Drawing.Size(544, 510);
             this.MainFormDataGridView.TabIndex = 10;
             this.MainFormDataGridView.Visible = false;
             this.MainFormDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -354,7 +354,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(737, 591);
+            this.ClientSize = new System.Drawing.Size(737, 589);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.BestSellersLabel);
             this.Controls.Add(this.NewlyReleasedLabel);
@@ -376,8 +376,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(753, 630);
-            this.MinimumSize = new System.Drawing.Size(753, 630);
+            this.MaximumSize = new System.Drawing.Size(753, 628);
+            this.MinimumSize = new System.Drawing.Size(753, 628);
             this.Name = "Form1";
             this.Text = "BookTheBook";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

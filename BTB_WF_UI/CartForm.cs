@@ -56,9 +56,9 @@ namespace BTB_WF_UI
             {
 
 
-                if (textBox2.Text[0] != 7 && textBox2.Text.Length != 10 && int.TryParse(textBox2.Text, out n) == false)
+                if (textBox2.Text[0] != 7 && textBox2.Text.Length != 11 && int.TryParse(textBox2.Text, out n) == false)
                 {
-                    MessageBox.Show("Phone has to contain 10 numbers and starts from 7)", "Phone number");
+                    MessageBox.Show("Phone has to contain 11 numbers and starts from 7)", "Phone number");
                     textBox2.Clear();
                 }
                 else
